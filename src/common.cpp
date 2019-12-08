@@ -1,6 +1,6 @@
 #include "common.h"
 
-#include <execinfo.h>
+// #include <execinfo.h>
 #include <signal.h>
 
 //
@@ -96,7 +96,7 @@ void errno_fail(int errno_val, char const *format, ...) {
 static void fatal_signal_handler(int sig) {
     // Use non-async-signal-safe functions. Likely to work in practice.
 
-    static void *backtrace_buffer[100];
+    /*static void *backtrace_buffer[100];
     static char addr2line_cmd_buf[100];
 
     fprintf(stderr, "caught fatal signal '%s'. Backtrace:\n\n", strsignal(sig));
@@ -124,7 +124,7 @@ static void fatal_signal_handler(int sig) {
             abort();
         }
 
-    abort();
+    abort();*/
 }
 
 static void install_fatal_signal_handler(int sig) {
