@@ -133,7 +133,7 @@ endif
 
 # _FILE_OFFSET_BITS=64 gives nicer errors for large files (even though we don't
 # support them on 32-bit systems)
-compile_flags += $(warnings) -D_FILE_OFFSET_BITS=64 $(shell sdl2-config --cflags)
+compile_flags += $(warnings) -D_FILE_OFFSET_BITS=64 -I../../SDL2/SDL-master-serenity/include
 
 #
 # Targets
@@ -157,7 +157,7 @@ $(c_objects): $(BUILD_DIR)/%.o: src/%.c
 # static pattern rule) rather than a catch-all wildcard.
 $(deps): $(BUILD_DIR)/%.d: src/%.cpp
 	@set -e; rm -f $@;                                                 \
-	  $(CXX) -MM -Iinclude $(shell sdl2-config --cflags) $< > $@.$$$$; \
+	  $(CXX) -MM -Iinclude -I../../SDL2/SDL-master-serenity/include $< > $@.$$$$; \
 	  sed 's,\($*\)\.o[ :]*,$(BUILD_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
 	  rm -f $@.$$$$
 
