@@ -58,7 +58,7 @@ c_objects   = $(addprefix $(BUILD_DIR)/,$(c_sources:=.o))
 objects     = $(c_objects) $(cpp_objects)
 deps        = $(addprefix $(BUILD_DIR)/,$(c_sources:=.d) $(cpp_sources:=.d))
 
-LDLIBS := -L../../SDL2/SDL-master-serenity -lSDL2 -lgui -lipc -ldraw -lcore -lpthread
+LDLIBS := -L../../SDL2/SDL-master-serenity -lSDL2 -lgui -lipc -lgfx -lcore -lpthread
 
 ifeq ($(INCLUDE_DEBUGGER),1)
     LDLIBS += -lreadline
