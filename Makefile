@@ -177,4 +177,4 @@ $(objects) $(deps): | $(BUILD_DIR)
 clean: ; $(q)-rm -rf $(BUILD_DIR)
 
 install:
-	install $(BUILD_DIR)/${EXECUTABLE} ${DESTDIR}/usr/local/bin/${EXECUTABLE}
+	install $(BUILD_DIR)/${EXECUTABLE} ${DESTDIR}/bin/${EXECUTABLE}
